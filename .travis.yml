@@ -2,6 +2,10 @@ language: php
 php:
   - '7.3'
   - '7.4'
+cache:
+  directories:
+    - vendor
+    - packages/greencheck/vendor
 dist: bionic
 env:
   - TGWF_CONFIG_FILE_PATH=/config.ci.mysql.yml
