@@ -14,4 +14,16 @@ class DefaultControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'The Green Web Foundation Api Service');
     }
+
+    public function testGreencheck()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/greencheck/www.nu.nl');
+
+        $this->assertResponseIsSuccessful();
+
+        $response = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('www.nu.nl', $response['url']);
+        $this->assertEquals(true, $response['green']);
+    }
 }

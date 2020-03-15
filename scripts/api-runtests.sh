@@ -10,5 +10,6 @@ php ./packages/greencheck/tests/doctrine-cli.php orm:schema-tool:drop --force
 php ./packages/greencheck/tests/doctrine-cli.php orm:schema-tool:create
 
 # run the api tests
+bin/console enqueue:consume -vvv &
 ./vendor/bin/simple-phpunit -c phpunit.xml.dist
 
