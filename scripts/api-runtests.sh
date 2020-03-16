@@ -10,6 +10,7 @@ php ./packages/greencheck/tests/doctrine-cli.php orm:schema-tool:drop --force
 php ./packages/greencheck/tests/doctrine-cli.php orm:schema-tool:create
 
 # run the api tests
-php bin/console enqueue:consume -vvv &
+php bin/console enqueue:consume -vvv --env=test &
 ./vendor/bin/simple-phpunit -c phpunit.xml.dist
+cat var/log/test.log
 
